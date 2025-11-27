@@ -2,7 +2,7 @@ import { assets } from "@/assets/assets";
 import BlogTableItem from "@/components/admin/BlogTableItem";
 import { useAppContext } from "@/context/AppContext";
 import toast from "react-hot-toast";
-import type { BlogType, DashboardData } from "@/types";
+import type { DashboardData } from "@/types";
 import { useEffect, useState } from "react";
 
 const Dashboard = () => {

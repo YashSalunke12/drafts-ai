@@ -46,7 +46,7 @@ const BlogTableItem = ({
       });
       if (data.success) {
         toast.success(data.message);
-        await fetchBlogs();
+        await refreshDashboard();
       } else {
         toast.error(data.message);
       }
