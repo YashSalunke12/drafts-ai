@@ -12,24 +12,11 @@ const Dashboard = () => {
     drafts: null,
     recentBlogs: [],
   });
-  const [blogs, setBlogs] = useState<Array<BlogType>>([]);
 
   const { axios } = useAppContext();
 
-  const fetchBlogs = async () => {
-    try {
-      const { data } = await axios.get(`/api/admin/blogs`);
-      if (data.success) {
-        setBlogs(data.blogs);
-        toast.success(data.message);
-      } else {
-        toast.error(data.message);
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message);
-      }
-    }
+  const refreshDashboard = async () => {
+    await fetchDashboard();
   };
 
   const fetchDashboard = async () => {
@@ -118,7 +105,7 @@ const Dashboard = () => {
                   <BlogTableItem
                     key={blog._id}
                     blog={blog}
-                    fetchBlogs={fetchBlogs}
+                    refreshDashboard={refreshDashboard}
                     index={index + 1}
                   />
                 );

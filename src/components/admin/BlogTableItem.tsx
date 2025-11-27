@@ -5,11 +5,15 @@ import type { BlogType } from "@/types";
 
 interface BlogTableItemProps {
   blog: BlogType;
-  fetchBlogs: () => void;
+  refreshDashboard: () => void;
   index: number;
 }
 
-const BlogTableItem = ({ blog, fetchBlogs, index }: BlogTableItemProps) => {
+const BlogTableItem = ({
+  blog,
+  refreshDashboard,
+  index,
+}: BlogTableItemProps) => {
   const { title, createdAt } = blog;
   const BlogDate = new Date(createdAt);
 
@@ -24,7 +28,7 @@ const BlogTableItem = ({ blog, fetchBlogs, index }: BlogTableItemProps) => {
       const { data } = await axios.post("/api/blog/delete", { id: blog._id });
       if (data.success) {
         toast.success(data.message);
-        await fetchBlogs();
+        await refreshDashboard();
       } else {
         toast.error(data.message);
       }
