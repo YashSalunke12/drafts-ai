@@ -1,5 +1,5 @@
 import { assets } from "@/assets/assets";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { FileText } from "lucide-react";
 import Sidebar from "@/components/admin/Sidebar";
 import { useAppContext } from "@/context/AppContext";
