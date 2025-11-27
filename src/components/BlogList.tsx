@@ -1,7 +1,7 @@
 import BlogCard from "@/components/BlogCard";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { blog_data, blogCategories } from "@/assets/assets";
+import { blogCategories } from "@/assets/assets";
 import { useAppContext } from "@/context/AppContext";
 
 const BlogList = () => {

@@ -1,4 +1,3 @@
-import { comments_data } from "@/assets/assets";
 import CommentTableItem from "@/components/admin/CommentTableItem";
 import toast from "react-hot-toast";
 import type { CommentType } from "@/types";
@@ -69,7 +68,7 @@ const Comments = () => {
             </tr>
           </thead>
           <tbody>
-            {comments_data
+            {comments
               .filter((comment) => {
                 if (filter === "Approved") return comment.isApproved === true;
                 return comment.isApproved === false;

@@ -65,7 +65,8 @@ const AddBlog = () => {
       });
       if (data.success) {
         if (!quillRef.current) return;
-        quillRef.current.root.innerHTML = parse(data.content);
+        const html = await parse(data.content);
+        quillRef.current.root.innerHTML = html;
       } else {
         toast.error(data.message);
       }
@@ -79,7 +80,6 @@ const AddBlog = () => {
   };
 
   useEffect(() => {
-    // Initiate quill once
     if (!quillRef.current && editorRef.current) {
       quillRef.current = new Quill(editorRef.current, { theme: "snow" });
     }
