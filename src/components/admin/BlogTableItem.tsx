@@ -5,19 +5,26 @@ import type { BlogType } from "@/types";
 
 interface BlogTableItemProps {
   blog: BlogType;
-  refreshDashboard: () => void;
+  refreshDashboard?: () => void;
+  fetchBlogs?: () => void;
   index: number;
 }
 
 const BlogTableItem = ({
   blog,
   refreshDashboard,
+  fetchBlogs,
   index,
 }: BlogTableItemProps) => {
   const { title, createdAt } = blog;
   const BlogDate = new Date(createdAt);
 
   const { axios } = useAppContext();
+
+  const refresh = async () => {
+    if (fetchBlogs) return fetchBlogs();
+    if (refreshDashboard) return refreshDashboard();
+  };
 
   const deleteBlog = async () => {
     const confirm = window.confirm(
@@ -28,7 +35,7 @@ const BlogTableItem = ({
       const { data } = await axios.post("/api/blog/delete", { id: blog._id });
       if (data.success) {
         toast.success(data.message);
-        await refreshDashboard();
+        await refresh();
       } else {
         toast.error(data.message);
       }
@@ -46,7 +53,7 @@ const BlogTableItem = ({
       });
       if (data.success) {
         toast.success(data.message);
-        await refreshDashboard();
+        await refresh();
       } else {
         toast.error(data.message);
       }
