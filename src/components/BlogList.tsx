@@ -19,8 +19,6 @@ const BlogList = () => {
     );
   };
   return blogs ? (
-    <div className="text-center m-40 text-gray-500">No Blogs Available</div>
-  ) : (
     <div>
       <div className="flex justify-center gap-4 sm:gap-8 my-10 relative">
         {blogCategories.map((item) => (
@@ -51,6 +49,8 @@ const BlogList = () => {
           ))}
       </div>
     </div>
+  ) : (
+    <div className="text-center m-40 text-gray-500">No Blogs Available</div>
   );
 };
 
