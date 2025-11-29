@@ -12,7 +12,7 @@ const ListBlog = () => {
       const { data } = await axios.get(`/api/admin/blogs`);
       if (data.success) {
         setBlogs(data.blogs);
-        toast.success(data.message);
+        // toast.success(data.message);
       } else {
         toast.error(data.message);
       }
