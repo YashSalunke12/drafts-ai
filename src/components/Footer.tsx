@@ -11,8 +11,7 @@ const Footer = () => {
             <h5 className="ml-3 text-black font-semibold">Drafts-ai</h5>
           </div>
           <p className="max-w-[410px] mt-6">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-            quas culpa, aspernatur quam, blanditiis nobis explicabo aperiam,
+            This is your space to think out loud, to share what matters, and to write without filters. Whatever it's one word or a thousand, your stroy starts right here.
           </p>
         </div>
         <div className="flex flex-wrap justify-between w-full md:w-[45%] gap5">
